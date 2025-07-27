@@ -20,7 +20,7 @@ fetch(proxyURL + actualURL)
   //default quote will be from the Queen of rap
   .catch(function(error) {
     console.error("QOTD failed to load :(", error);
-    document.getElementById('quote').textContent = '"Sometimes you dont realize how far youve gotten until you look around at the people who are stlil trailing far behind you"';
+    document.getElementById('quote').textContent = '"Sometimes you don\'t realize how far you\'ve gotten until you look around at the people who are still trailing far behind you"';
     docuemnt.getElementById('quote-author).textContent = '- Onika Maraj';
   });
 }
