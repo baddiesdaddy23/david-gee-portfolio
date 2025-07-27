@@ -21,7 +21,7 @@ fetch(proxyURL + actualURL)
   .catch(function(error) {
     console.error("QOTD failed to load :(", error);
     document.getElementById('quote').textContent = '"Sometimes you don\'t realize how far you\'ve gotten until you look around at the people who are still trailing far behind you"';
-    docuemnt.getElementById('quote-author).textContent = '- Onika Maraj';
+    document.getElementById('quote-author).textContent = '- Onika Maraj';
   });
 }
 
