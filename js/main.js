@@ -1,7 +1,10 @@
 function getQuote() {
   console.log("Just a sec while I grab the QOTD");
-
-fetch('https://zenquotes.io/api/random')
+//need to add proxy to avoid errors
+const proxyURL = 'https://cors-anywhere.herokuapp.com/';
+const actualURL = 'https://zenquotes.io/api/random';
+  
+fetch(proxyURL + actualURL)
   .then(function(response) {
     if (!response.ok) {
       throw new Error("QOTD failed :(");
