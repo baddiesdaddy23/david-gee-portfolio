@@ -1,6 +1,8 @@
 function getQuote() {
   console.log("Just a sec while I grab the QOTD");
 //need to add proxy to avoid errors
+//must hit temp access button and request demo in order for this to work
+//demo site: https://cors-anywhere.herokuapp.com/
 const proxyURL = 'https://cors-anywhere.herokuapp.com/';
 const actualURL = 'https://zenquotes.io/api/random';
   
