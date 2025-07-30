@@ -116,7 +116,7 @@ nav {
 }
 
 .hero {
-  padding: 5rem 0;
+  padding: 2rem 0;
   text-align: center;
   background-color: var(--background);
 }
@@ -148,6 +148,7 @@ nav {
 
 .quote-section {
   text-align: center;
+  margin-top: 3rem;
 }
 
 #quote-author {
