@@ -115,27 +115,28 @@ nav {
   position: relative;
 }
 
-.hero {
-  padding: 2rem 0;
-  text-align: center;
+.hero {  
+  min-height: 100vh;
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   color: var(--dark);
 }
 
 .hero p {
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
   color: var(--text)
 }
 
 #slideshow-image {
   width: 100%
-  max-width: 1000px;
+  max-width: 700px;
   height: auto;
 }
 
@@ -148,7 +149,7 @@ nav {
 
 .quote-section {
   text-align: center;
-  margin-top: 3rem;
+  padding-top: 2rem;
 }
 
 #quote-author {
