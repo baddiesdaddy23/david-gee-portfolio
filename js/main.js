@@ -21,11 +21,23 @@ fetch(proxyURL + actualURL)
   .catch(function(error) {
     console.error("QOTD failed to load :(", error);
     document.getElementById('quote').textContent = '"Sometimes you don\'t realize how far you\'ve gotten until you look around at the people who are still trailing far behind you"';
-    document.getElementById('quote-author).textContent = '- Onika Maraj';
+    document.getElementById('quote-author').textContent = '- Onika Maraj';
   });
+}
+
+function startSlides() {
+  const images = ['images/landscape-1.jpg', 'images/landscape-2.jpg', 'images/landscape-3.jpg'];
+  const slidePhotos = document.getElementById('slideshow-image');
+  let currentImage = 0;
+  
+  setInterval(function() {
+    currentImage = (currentImage + 1) % images.length;
+    slidePhotos.src = images[currentImage];
+  }, 3000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log("Load received from DOM");
   getQuote();
+  startSlides();
 });
