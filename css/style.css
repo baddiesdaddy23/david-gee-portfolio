@@ -146,6 +146,10 @@ nav {
   text-align: center;
 }
 
+.quote-section {
+  text-align: center;
+}
+
 #quote-author {
   font-size: 1rem;
   font-weight: 500;
