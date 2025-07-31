@@ -5,7 +5,7 @@
   --text: #333333;
   --light-text: #ffffff;
   --dark: #264653;
-  --background: #E9F5DB
+  --background: #E9F5DB;
 }
 /* target everything symbol= * */
 * {
@@ -76,7 +76,7 @@ body {
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--secondary)
+  color: var(--secondary);
 }
 
 .about-content-grid {
@@ -131,7 +131,7 @@ nav {
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: var(--text)
+  color: var(--text);
 }
 
 #slideshow-image {
