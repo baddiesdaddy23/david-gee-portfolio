@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shiny Pokémon Regulation I Teams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f7d51d 0%, #e85858 100%);
+      font-family: 'Press Start 2P', cursive, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2d2d2d;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 40px auto;
+      background: #fffbe6;
+      border-radius: 18px;
+      box-shadow: 0 0 24px #e85858cc;
+      padding: 32px 24px 24px 24px;
+    }
+    h1 {
+      text-align: center;
+      color: #386abb;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #f7d51d;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .tab {
+      background: #386abb;
+      color: #fffbe6;
+      border: none;
+      padding: 14px 36px;
+      margin: 0 8px;
+      border-radius: 12px 12px 0 0;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      outline: none;
+      box-shadow: 0 2px 8px #386abb55;
+    }
+    .tab.active {
+      background: #f7d51d;
+      color: #386abb;
+      font-weight: bold;
+      box-shadow: 0 2px 12px #e8585888;
+    }
+    .team-panel {
+      display: none;
+    }
+    .team-panel.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .team-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      background: #f7f7f7;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .team-table th, .team-table td {
+      border: 1px solid #386abb44;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 0.98em;
+    }
+    .team-table th {
+      background: #386abb;
+      color: #fffbe6;
+      font-size: 1em;
+    }
+    .poke-sprite {
+      width: 70px;
+      height: 70px;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 0 6px #f7d51d88);
+      background: #fffbe6;
+      border-radius: 50%;
+      border: 2px solid #386abb;
+      box-shadow: 0 0 10px #e8585855;
+    }
+    .ev-list, .move-list {
+      text-align: left;
+      font-size: 0.93em;
+      padding-left: 8px;
+    }
+    .role-label {
+      background: #e85858;
+      color: #fffbe6;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.93em;
+      font-weight: bold;
+      box-shadow: 0 1px 4px #e8585844;
+    }
+    .item-label {
+      background: #f7d51d;
+      color: #386abb;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.93em;
+      font-weight: bold;
+      box-shadow: 0 1px 4px #f7d51d44;
+    }
+    .tera-label {
+      background: #386abb;
+      color: #fffbe6;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.93em;
+      font-weight: bold;
+      box-shadow: 0 1px 4px #386abb44;
+    }
+    .nature-label {
+      background: #fffbe6;
+      color: #e85858;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 0.93em;
+      font-weight: bold;
+      border: 1px solid #e85858;
+      box-shadow: 0 1px 4px #e8585844;
+    }
+    @media (max-width: 800px) {
+      .container { padding: 8px; }
+      .team-table th, .team-table td { font-size: 0.85em; padding: 6px 2px; }
+      .poke-sprite { width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Shiny Pokémon Regulation I Teams</h1>
+    <div class="tabs">
+      <button class="tab active" onclick="showPanel(0)">Trick Room Powerhouse</button>
+      <button class="tab" onclick="showPanel(1)">Beat Up Annihilape Offense</button>
+      <button class="tab" onclick="showPanel(2)">Balanced Tailwind Offense</button>
+    </div>
+    <div id="panel-0" class="team-panel active">
+      <table class="team-table">
+        <tr>
+          <th>Pokémon</th>
+          <th>Role</th>
+          <th>Item</th>
+          <th>Tera Type</th>
+          <th>Nature</th>
+          <th>EVs</th>
+          <th>Moves</th>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/porygon2.gif" alt="Porygon2"></td>
+          <td><span class="role-label">Trick Room Setter</span></td>
+          <td><span class="item-label">Eviolite</span></td>
+          <td><span class="tera-label">Fairy</span></td>
+          <td><span class="nature-label">Bold</span></td>
+          <td class="ev-list">244 HP / 156 Def / 68 SpA / 36 SpD / 4 Spe</td>
+          <td class="move-list">Trick Room, Recover, Ice Beam, Tera Blast</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/ursaluna.gif" alt="Ursaluna"></td>
+          <td><span class="role-label">Trick Room Attacker</span></td>
+          <td><span class="item-label">Flame Orb</span></td>
+          <td><span class="tera-label">Normal</span></td>
+          <td><span class="nature-label">Brave</span></td>
+          <td class="ev-list">252 HP / 252 Atk / 4 Def</td>
+          <td class="move-list">Facade, Headlong Rush, Close Combat, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/amoonguss.gif" alt="Amoonguss"></td>
+          <td><span class="role-label">Redirection/Support</span></td>
+          <td><span class="item-label">Sitrus Berry</span></td>
+          <td><span class="tera-label">Steel</span></td>
+          <td><span class="nature-label">Calm</span></td>
+          <td class="ev-list">236 HP / 156 Def / 116 SpD</td>
+          <td class="move-list">Spore, Rage Powder, Pollen Puff, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/sinistcha.gif" alt="Sinistcha"></td>
+          <td><span class="role-label">Trick Room Setter</span></td>
+          <td><span class="item-label">Leftovers</span></td>
+          <td><span class="tera-label">Water</span></td>
+          <td><span class="nature-label">Relaxed</span></td>
+          <td class="ev-list">252 HP / 252 Def / 4 SpD</td>
+          <td class="move-list">Trick Room, Strength Sap, Shadow Ball, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/gyarados.gif" alt="Gyarados"></td>
+          <td><span class="role-label">Intimidate/Support</span></td>
+          <td><span class="item-label">Safety Goggles</span></td>
+          <td><span class="tera-label">Flying</span></td>
+          <td><span class="nature-label">Impish</span></td>
+          <td class="ev-list">252 HP / 252 Def / 4 Spe</td>
+          <td class="move-list">Waterfall, Taunt, Thunder Wave, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/dragonite.gif" alt="Dragonite"></td>
+          <td><span class="role-label">Backup Sweeper</span></td>
+          <td><span class="item-label">Life Orb</span></td>
+          <td><span class="tera-label">Normal</span></td>
+          <td><span class="nature-label">Adamant</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Extreme Speed, Earthquake, Protect, Ice Spinner</td>
+        </tr>
+      </table>
+    </div>
+    <div id="panel-1" class="team-panel">
+      <table class="team-table">
+        <tr>
+          <th>Pokémon</th>
+          <th>Role</th>
+          <th>Item</th>
+          <th>Tera Type</th>
+          <th>Nature</th>
+          <th>EVs</th>
+          <th>Moves</th>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/annihilape.gif" alt="Annihilape"></td>
+          <td><span class="role-label">Physical Sweeper</span></td>
+          <td><span class="item-label">Choice Scarf</span></td>
+          <td><span class="tera-label">Water</span></td>
+          <td><span class="nature-label">Jolly</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Rage Fist, Close Combat, U-turn, Final Gambit</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/maushold.gif" alt="Maushold"></td>
+          <td><span class="role-label">Beat Up/Support</span></td>
+          <td><span class="item-label">Wide Lens</span></td>
+          <td><span class="tera-label">Ghost</span></td>
+          <td><span class="nature-label">Jolly</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Population Bomb, Beat Up, Follow Me, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/dragonite.gif" alt="Dragonite"></td>
+          <td><span class="role-label">Physical Sweeper</span></td>
+          <td><span class="item-label">Yache Berry</span></td>
+          <td><span class="tera-label">Flying</span></td>
+          <td><span class="nature-label">Adamant</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Breaking Swipe, Earthquake, Rock Slide, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/indeedee.gif" alt="Indeedee"></td>
+          <td><span class="role-label">Psychic Terrain</span></td>
+          <td><span class="item-label">Psychic Seed</span></td>
+          <td><span class="tera-label">Psychic</span></td>
+          <td><span class="nature-label">Calm</span></td>
+          <td class="ev-list">252 HP / 156 Def / 100 SpD</td>
+          <td class="move-list">Follow Me, Helping Hand, Psychic, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/amoonguss.gif" alt="Amoonguss"></td>
+          <td><span class="role-label">Redirection/Support</span></td>
+          <td><span class="item-label">Rocky Helmet</span></td>
+          <td><span class="tera-label">Water</span></td>
+          <td><span class="nature-label">Calm</span></td>
+          <td class="ev-list">236 HP / 156 Def / 116 SpD</td>
+          <td class="move-list">Spore, Rage Powder, Pollen Puff, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/gyarados.gif" alt="Gyarados"></td>
+          <td><span class="role-label">Intimidate/Support</span></td>
+          <td><span class="item-label">Lum Berry</span></td>
+          <td><span class="tera-label">Flying</span></td>
+          <td><span class="nature-label">Impish</span></td>
+          <td class="ev-list">252 HP / 252 Def / 4 Spe</td>
+          <td class="move-list">Waterfall, Dragon Dance, Taunt, Protect</td>
+        </tr>
+      </table>
+    </div>
+    <div id="panel-2" class="team-panel">
+      <table class="team-table">
+        <tr>
+          <th>Pokémon</th>
+          <th>Role</th>
+          <th>Item</th>
+          <th>Tera Type</th>
+          <th>Nature</th>
+          <th>EVs</th>
+          <th>Moves</th>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/corviknight.gif" alt="Corviknight"></td>
+          <td><span class="role-label">Tailwind Setter</span></td>
+          <td><span class="item-label">Leftovers</span></td>
+          <td><span class="tera-label">Steel</span></td>
+          <td><span class="nature-label">Impish</span></td>
+          <td class="ev-list">252 HP / 252 Def / 4 SpD</td>
+          <td class="move-list">Tailwind, Brave Bird, Iron Head, Roost</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/dragonite.gif" alt="Dragonite"></td>
+          <td><span class="role-label">Physical Sweeper</span></td>
+          <td><span class="item-label">Life Orb</span></td>
+          <td><span class="tera-label">Normal</span></td>
+          <td><span class="nature-label">Adamant</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Extreme Speed, Earthquake, Protect, Ice Spinner</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/gallade.gif" alt="Gallade"></td>
+          <td><span class="role-label">Physical Attacker</span></td>
+          <td><span class="item-label">Focus Sash</span></td>
+          <td><span class="tera-label">Fighting</span></td>
+          <td><span class="nature-label">Jolly</span></td>
+          <td class="ev-list">4 HP / 252 Atk / 252 Spe</td>
+          <td class="move-list">Close Combat, Psycho Cut, Wide Guard, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/sylveon.gif" alt="Sylveon"></td>
+          <td><span class="role-label">Special Attacker</span></td>
+          <td><span class="item-label">Throat Spray</span></td>
+          <td><span class="tera-label">Fairy</span></td>
+          <td><span class="nature-label">Modest</span></td>
+          <td class="ev-list">252 HP / 252 SpA / 4 SpD</td>
+          <td class="move-list">Hyper Voice, Quick Attack, Protect, Tera Blast</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/gyarados.gif" alt="Gyarados"></td>
+          <td><span class="role-label">Intimidate/Support</span></td>
+          <td><span class="item-label">Sitrus Berry</span></td>
+          <td><span class="tera-label">Flying</span></td>
+          <td><span class="nature-label">Impish</span></td>
+          <td class="ev-list">252 HP / 252 Def / 4 Spe</td>
+          <td class="move-list">Waterfall, Dragon Dance, Taunt, Protect</td>
+        </tr>
+        <tr>
+          <td><img class="poke-sprite" src="https://play.pokemonshowdown.com/sprites/ani-shiny/amoonguss.gif" alt="Amoonguss"></td>
+          <td><span class="role-label">Redirection/Support</span></td>
+          <td><span class="item-label">Sitrus Berry</span></td>
+          <td><span class="tera-label">Steel</span></td>
+          <td><span class="nature-label">Calm</span></td>
+          <td class="ev-list">236 HP / 156 Def / 116 SpD</td>
+          <td class="move-list">Spore, Rage Powder, Pollen Puff, Protect</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script>
+    function showPanel(idx) {
+      const panels = document.querySelectorAll('.team-panel');
+      const tabs = document.querySelectorAll('.tab');
+      panels.forEach((panel, i) => {
+        panel.classList.toggle('active', i === idx);
+      });
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === idx);
+      });
+    }
+  </script>
+</body>
+</html>
