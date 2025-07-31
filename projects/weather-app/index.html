@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmos the Weather Bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <nav>
+                <a href="index.html" class="nav-link active">Today</a>
+                <a href="forecast.html" class="nav-link">Atmos 5 Day Outlook</a>
+            </nav>            
+
+            <form id="search-form">
+                <input type="text" id="city-input" placeholder="Enter city name for Atmos to drop in on:" required>
+                <button type="submit">Search</button>
+            </form>
+        </header>
+
+        <p class="bot-greeting">"Hello. I am Atmos. Let's forecast your fate."</p>
+
+        <main id="weather-display" class="weather-today">
+            <div class="placeholder">
+                <h2>Let's take a look at the skies ☁️</h2>
+                <p>Atmos will remember your last forecast, just don't hit F5</p>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+        <p>Atmos was created by the handsome genius David Gee · Wonderful Weather Widget</p>
+        </footer>
+
+    </div><script src="scripts/main.js"></script> 
+</body>
+</html>
